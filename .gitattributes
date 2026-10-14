@@ -1,0 +1,6 @@
+* text=auto eol=lf
+Ke-hoach-AML-Blockchain.md -text
+*.sh text eol=lf
+*.py text eol=lf
+*.yaml text eol=lf
+*.sql text eol=lf

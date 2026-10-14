@@ -1,0 +1,355 @@
+{
+  "run_id": "b44f0560-4234-494d-98c8-8bc650057556",
+  "restart_requested": true,
+  "checks": "API/RBAC/CSRF/idempotency/cursor/timeline/budgets/review/SSE/replay",
+  "initial": {
+    "scope": "single synthetic run; not an independent held-out benchmark",
+    "transaction_count": 5000,
+    "labelled_transaction_count": 95,
+    "prevalence": 0.019,
+    "online": {
+      "TP": 22,
+      "FP": 0,
+      "FN": 73,
+      "TN": 4905,
+      "precision": 1,
+      "recall": 0.23157894736842105,
+      "FPR": 0,
+      "F1": 0.37606837606837606
+    },
+    "retrospective": {
+      "TP": 95,
+      "FP": 0,
+      "FN": 0,
+      "TN": 4905,
+      "precision": 1,
+      "recall": 1,
+      "FPR": 0,
+      "F1": 1
+    },
+    "patterns": {
+      "MIXING_PATTERN": {
+        "online": {
+          "TP": 1,
+          "FP": 0,
+          "FN": 41,
+          "TN": 4958,
+          "precision": 1,
+          "recall": 0.023809523809523808,
+          "FPR": 0,
+          "F1": 0.046511627906976744
+        },
+        "retrospective": {
+          "TP": 42,
+          "FP": 0,
+          "FN": 0,
+          "TN": 4958,
+          "precision": 1,
+          "recall": 1,
+          "FPR": 0,
+          "F1": 1
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      },
+      "PEELING": {
+        "online": {
+          "TP": 3,
+          "FP": 0,
+          "FN": 9,
+          "TN": 4988,
+          "precision": 1,
+          "recall": 0.25,
+          "FPR": 0,
+          "F1": 0.4
+        },
+        "retrospective": {
+          "TP": 12,
+          "FP": 0,
+          "FN": 0,
+          "TN": 4988,
+          "precision": 1,
+          "recall": 1,
+          "FPR": 0,
+          "F1": 1
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      },
+      "RAPID_HIGH_RISK": {
+        "online": {
+          "TP": 3,
+          "FP": 0,
+          "FN": 2,
+          "TN": 4995,
+          "precision": 1,
+          "recall": 0.6,
+          "FPR": 0,
+          "F1": 0.75
+        },
+        "retrospective": {
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "TN": 4995,
+          "precision": 1,
+          "recall": 1,
+          "FPR": 0,
+          "F1": 1
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      },
+      "SMURFING": {
+        "online": {
+          "TP": 4,
+          "FP": 0,
+          "FN": 20,
+          "TN": 4976,
+          "precision": 1,
+          "recall": 0.16666666666666666,
+          "FPR": 0,
+          "F1": 0.2857142857142857
+        },
+        "retrospective": {
+          "TP": 24,
+          "FP": 0,
+          "FN": 0,
+          "TN": 4976,
+          "precision": 1,
+          "recall": 1,
+          "FPR": 0,
+          "F1": 1
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      },
+      "STRUCTURING": {
+        "online": {
+          "TP": 5,
+          "FP": 5,
+          "FN": 7,
+          "TN": 4983,
+          "precision": 0.5,
+          "recall": 0.4166666666666667,
+          "FPR": 0.0010024057738572574,
+          "F1": 0.45454545454545453
+        },
+        "retrospective": {
+          "TP": 12,
+          "FP": 12,
+          "FN": 0,
+          "TN": 4976,
+          "precision": 0.5,
+          "recall": 1,
+          "FPR": 0.0024057738572574178,
+          "F1": 0.6666666666666666
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      }
+    },
+    "campaigns_detected": 5,
+    "campaign_count": 5,
+    "alerts_by_detector": {
+      "DIRECT_BLACKLIST": 1,
+      "STRUCTURING": 2,
+      "SMURFING": 1,
+      "PEELING": 1,
+      "MIXING_PATTERN": 1,
+      "RAPID_HIGH_RISK": 1
+    },
+    "alerts_per_1000_tx": 1.4,
+    "analysis_mode": "as-known",
+    "analysis_version": "b2-rules-v1:2c0cc8f8e320:a1",
+    "analysis_seconds": 15.453194374999839,
+    "throughput_tx_s": 323.5576980827339,
+    "process_p50_ms": 0.7706470005359733,
+    "process_p95_ms": 2.757181000561104,
+    "measurement": "worker wall time including persistence; per-tx timing is engine computation only",
+    "partial_assessments": 1093,
+    "baseline": "B2",
+    "model_status": "not_configured",
+    "seed": 42,
+    "rule_version": "rules-v1",
+    "feed_versions": [
+      "synthetic-v1-42"
+    ],
+    "ledger_hash": "110c5746577dbf7468ba412cfd3ed21b5662ef4c672069a17d04ee148eb96f35"
+  },
+  "replay": {
+    "scope": "single synthetic run; not an independent held-out benchmark",
+    "transaction_count": 5000,
+    "labelled_transaction_count": 95,
+    "prevalence": 0.019,
+    "online": {
+      "TP": 22,
+      "FP": 0,
+      "FN": 73,
+      "TN": 4905,
+      "precision": 1,
+      "recall": 0.23157894736842105,
+      "FPR": 0,
+      "F1": 0.37606837606837606
+    },
+    "retrospective": {
+      "TP": 95,
+      "FP": 0,
+      "FN": 0,
+      "TN": 4905,
+      "precision": 1,
+      "recall": 1,
+      "FPR": 0,
+      "F1": 1
+    },
+    "patterns": {
+      "MIXING_PATTERN": {
+        "online": {
+          "TP": 1,
+          "FP": 0,
+          "FN": 41,
+          "TN": 4958,
+          "precision": 1,
+          "recall": 0.023809523809523808,
+          "FPR": 0,
+          "F1": 0.046511627906976744
+        },
+        "retrospective": {
+          "TP": 42,
+          "FP": 0,
+          "FN": 0,
+          "TN": 4958,
+          "precision": 1,
+          "recall": 1,
+          "FPR": 0,
+          "F1": 1
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      },
+      "PEELING": {
+        "online": {
+          "TP": 3,
+          "FP": 0,
+          "FN": 9,
+          "TN": 4988,
+          "precision": 1,
+          "recall": 0.25,
+          "FPR": 0,
+          "F1": 0.4
+        },
+        "retrospective": {
+          "TP": 12,
+          "FP": 0,
+          "FN": 0,
+          "TN": 4988,
+          "precision": 1,
+          "recall": 1,
+          "FPR": 0,
+          "F1": 1
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      },
+      "RAPID_HIGH_RISK": {
+        "online": {
+          "TP": 3,
+          "FP": 0,
+          "FN": 2,
+          "TN": 4995,
+          "precision": 1,
+          "recall": 0.6,
+          "FPR": 0,
+          "F1": 0.75
+        },
+        "retrospective": {
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "TN": 4995,
+          "precision": 1,
+          "recall": 1,
+          "FPR": 0,
+          "F1": 1
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      },
+      "SMURFING": {
+        "online": {
+          "TP": 4,
+          "FP": 0,
+          "FN": 20,
+          "TN": 4976,
+          "precision": 1,
+          "recall": 0.16666666666666666,
+          "FPR": 0,
+          "F1": 0.2857142857142857
+        },
+        "retrospective": {
+          "TP": 24,
+          "FP": 0,
+          "FN": 0,
+          "TN": 4976,
+          "precision": 1,
+          "recall": 1,
+          "FPR": 0,
+          "F1": 1
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      },
+      "STRUCTURING": {
+        "online": {
+          "TP": 5,
+          "FP": 5,
+          "FN": 7,
+          "TN": 4983,
+          "precision": 0.5,
+          "recall": 0.4166666666666667,
+          "FPR": 0.0010024057738572574,
+          "F1": 0.45454545454545453
+        },
+        "retrospective": {
+          "TP": 12,
+          "FP": 12,
+          "FN": 0,
+          "TN": 4976,
+          "precision": 0.5,
+          "recall": 1,
+          "FPR": 0.0024057738572574178,
+          "F1": 0.6666666666666666
+        },
+        "campaign_detected": true,
+        "core_overlap": 1
+      }
+    },
+    "campaigns_detected": 5,
+    "campaign_count": 5,
+    "alerts_by_detector": {
+      "RAPID_HIGH_RISK": 1,
+      "STRUCTURING": 2,
+      "SMURFING": 1,
+      "PEELING": 1,
+      "MIXING_PATTERN": 1,
+      "DIRECT_BLACKLIST": 1
+    },
+    "alerts_per_1000_tx": 1.4,
+    "analysis_mode": "as-known",
+    "analysis_version": "b2-rules-v1:425755e14846:a2",
+    "analysis_seconds": 16.28516338999998,
+    "throughput_tx_s": 307.0279296718807,
+    "process_p50_ms": 0.8470700004181708,
+    "process_p95_ms": 2.815394000208471,
+    "measurement": "worker wall time including persistence; per-tx timing is engine computation only",
+    "partial_assessments": 1093,
+    "baseline": "B2",
+    "model_status": "not_configured",
+    "seed": 42,
+    "rule_version": "rules-v1",
+    "feed_versions": [
+      "synthetic-v1-42"
+    ],
+    "ledger_hash": "110c5746577dbf7468ba412cfd3ed21b5662ef4c672069a17d04ee148eb96f35"
+  }
+}

@@ -1,0 +1,9 @@
+# Cau hinh du an toi thieu. Nguon: OpenAI Docs (xem README.md).
+# AGENTS.md van la ten chinh; agent.md chi la fallback tai cung thu muc.
+project_doc_fallback_filenames = ["agent.md"]
+project_doc_max_bytes = 32768
+
+# Khong co setting "rules_path" de tu dong nap cac quy tac Markdown.
+# AGENTS.md chi dinh agent doc rules/*.md theo cong viec.
+# Model, provider, quyen truy cap va approval giu theo client/nguoi dung.
+# Khong luu credential, token, hook tu dong hay dia chi MCP trong file nay.

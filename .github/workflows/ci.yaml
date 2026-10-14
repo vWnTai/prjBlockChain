@@ -1,0 +1,34 @@
+name: local-stack-validation
+on:
+  push:
+    branches: [main, develop, dev-sec]
+  pull_request:
+    branches: [main, develop]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+      - name: Frontend verification
+        working-directory: frontend
+        run: npm ci && npm test && npm run build && npm audit --audit-level=high
+      - name: Start isolated stack
+        run: node scripts/local.mjs up
+      - name: Backend and PostgreSQL integration
+        run: docker compose --profile test run --rm test
+      - name: End-to-end API smoke
+        run: node scripts/smoke.mjs --count=150
+      - name: Browser workflow
+        working-directory: frontend
+        run: npx playwright install --with-deps chromium && npm run test:e2e
+      - name: Teardown ephemeral CI stack
+        if: always()
+        run: docker compose down
