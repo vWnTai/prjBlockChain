@@ -38,6 +38,26 @@ def apportion(parts: list[Part], amount: int) -> tuple[list[Part], list[Part]]:
     return sent, kept
 
 
+def compute_pagerank(
+    graph: nx.Graph,
+    alpha: float = 0.85,
+    personalization: dict | None = None,
+    weight: str = "weight",
+    max_iter: int = 100,
+) -> dict:
+    """Personalized PageRank supporting pure-Python environments without scipy/numpy."""
+    try:
+        from networkx.algorithms.link_analysis.pagerank_alg import _pagerank_python
+
+        return _pagerank_python(
+            graph, alpha=alpha, personalization=personalization, weight=weight, max_iter=max_iter
+        )
+    except Exception:
+        return nx.pagerank(
+            graph, alpha=alpha, personalization=personalization, weight=weight, max_iter=max_iter
+        )
+
+
 class Engine:
     def __init__(
         self,
@@ -724,7 +744,7 @@ class Engine:
 
         subG = self.graph.subgraph(tainted_nodes)
         p_vector = {s: seeds[s] for s in seeds if s in subG}
-        pr = nx.pagerank(subG, alpha=0.85, personalization=p_vector, weight="value_base", max_iter=100)
+        pr = compute_pagerank(subG, alpha=0.85, personalization=p_vector, weight="value_base", max_iter=100)
 
         max_seed_pr = max((pr.get(s, 0.0) for s in seeds if s in pr), default=1.0)
         raw_pr = pr.get(recipient_node, 0.0)
